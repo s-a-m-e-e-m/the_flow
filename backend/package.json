@@ -1,4 +1,10 @@
 {
+  "name": "the-flow",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "@google/genai": "^1.45.0",
     "@imagekit/nodejs": "^7.3.0",
