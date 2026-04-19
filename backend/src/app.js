@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://theflow-six.vercel.app',
+    origin: 'https://theflow-liart.vercel.app',
     credentials: true
 }));
 
