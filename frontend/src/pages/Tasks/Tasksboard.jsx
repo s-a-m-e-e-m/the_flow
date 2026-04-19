@@ -172,7 +172,7 @@ const TasksBoard = () => {
                   <div className="flex flex-col gap-2 mb-4">
                     <span className="flex items-center gap-2 font-semibold text-lg">
                       <span className="font-semibold text-xl">{task.title}</span>
-                      <button className="hover:text-blue-500 transition" onClick={() => setEditingTaskId(task._id)}>
+                      <button className="hover:text-blue-500 cursor-pointer transition" onClick={() => setEditingTaskId(task._id)}>
                         <LuPencil />
                       </button>
                     </span>
@@ -188,7 +188,7 @@ const TasksBoard = () => {
                         <button
                           type="button"
                           onClick={() => updateTaskTitle(task._id)}
-                          className="bg-green-500 hover:bg-green-600 text-white p-2 rounded-md"
+                          className="bg-green-500 hover:bg-green-600 cursor-pointer text-white p-2 rounded-md"
                         >
                           Save
                         </button>
@@ -224,7 +224,7 @@ const TasksBoard = () => {
                         </button>
                       </div>
                     ) : (
-                      <button className="hover:text-blue-500 transition" onClick={() => setEditingDeadlineId(task._id)}>
+                      <button className="hover:text-blue-500 cursor-pointer transition" onClick={() => setEditingDeadlineId(task._id)}>
                         <LuPencil />
                       </button>
                     )}
@@ -247,7 +247,7 @@ const TasksBoard = () => {
                       </select>
                       <button
                         type="submit"
-                        className="bg-blue-600 hover:bg-blue-700 text-white p-1 rounded-md"
+                        className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white p-1 rounded-md"
                       >
                         Update
                       </button>
@@ -255,7 +255,7 @@ const TasksBoard = () => {
 
                     <button
                       onClick={() => deleteTask(task._id)}
-                      className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-md font-semibold"
+                      className="bg-red-500 hover:bg-red-600 cursor-pointer text-white p-2 rounded-md font-semibold"
                     >
                       Delete
                     </button>
@@ -294,7 +294,7 @@ const TasksBoard = () => {
                 type="button"
                 onClick={() => removeInputField(task.id)}
                 disabled={taskInputs.length === 1}
-                className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md disabled:opacity-50">
+                className="bg-red-500 hover:bg-red-600 cursor-pointer text-white font-bold py-2 px-4 rounded-md disabled:opacity-50">
                 Remove
               </button>
             </div>
@@ -304,13 +304,13 @@ const TasksBoard = () => {
             <button
               type="button"
               onClick={addInputField}
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md">
+              className="bg-blue-500 hover:bg-blue-600 cursor-pointer text-white font-bold py-2 px-4 rounded-md">
               + Add another field
             </button>
 
             <button
               type="submit"
-              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md"
+              className="bg-green-500 hover:bg-green-600 cursor-pointer text-white  font-bold py-2 px-4 rounded-md"
               disabled={loading}>
               Save Tasks
             </button>
