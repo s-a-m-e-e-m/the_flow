@@ -4,6 +4,12 @@ const jwt = require('jsonwebtoken');
 const tokenBlacklistModel = require('../models/blacklist.model');
 const { setUserRoadmap } = require('../utils/roadmap');
 
+const cookieOptions = {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
+};
+
 const registerUserController = async (req, res) => {
     const { username, email, password, targetRole } = req.body;
 
@@ -44,7 +50,7 @@ const registerUserController = async (req, res) => {
         { expiresIn: "1d" }
     );
 
-    res.cookie("token", token);
+    res.cookie("token", token, cookieOptions);
 
     res.status(201).json({
         message: "User registered successfully",
@@ -81,7 +87,7 @@ const loginUserController = async (req, res) => {
         { expiresIn: "1d" }
     );
 
-    res.cookie("token", token);
+    res.cookie("token", token, cookieOptions);
 
     res.status(200).json({
         message: `Welcome back ${user.username}`,
@@ -101,7 +107,7 @@ const logoutUserController = async (req, res) => {
         await tokenBlacklistModel.create({ token });
     }
 
-    res.clearCookie("token");
+    res.clearCookie("token", cookieOptions);
 
     res.status(200).json({
         message: "User logged out sucessfully"
